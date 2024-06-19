@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/views/widgets/custom_appbar.dart';
 import 'package:notes_app/views/widgets/notes_item.dart';
+import 'package:notes_app/views/widgets/notes_listview.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -9,14 +10,16 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           children: [
             SizedBox(
               height: 24,
             ),
             CustomAppbar(),
-            NoteItem(),
+            Expanded(
+              child: NotesListview(),
+            )
           ],
         ),
       ),
