@@ -15,11 +15,11 @@ class NotesItem extends StatelessWidget {
         color: const Color(0xffFFCC79),
         borderRadius: BorderRadius.circular(8),
       ),
-      child: const Column(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           ListTile(
-            title: Text(
+            title: const Text(
               "Study with me",
               style: TextStyle(
                 color: Colors.black,
@@ -27,7 +27,7 @@ class NotesItem extends StatelessWidget {
                 fontSize: 26,
               ),
             ),
-            subtitle: Padding(
+            subtitle: const Padding(
               padding: EdgeInsets.only(top: 8),
               child: Text(
                 "Study with me (Introduced by Yousef Sobhy) *No music only Rain sound*",
@@ -37,12 +37,14 @@ class NotesItem extends StatelessWidget {
                 ),
               ),
             ),
-            trailing: Icon(
-              Icons.delete,
-              color: Colors.black,
-            ),
+            trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.black,
+                )),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 8, right: 16),
             child: Text(
               "21May, 2024",
