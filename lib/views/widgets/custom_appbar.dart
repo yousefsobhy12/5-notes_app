@@ -1,34 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/views/widgets/custom_icon_button.dart';
 
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
     super.key,
+    required this.title, required this.icon,
   });
-
+  final String title;
+  final IconData icon;
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const Text(
-          "Notes",
+        Text(
+          title,
           style: TextStyle(
             fontSize: 28,
             fontWeight: FontWeight.bold,
           ),
         ),
         const Spacer(),
-        Container(
-            height: 33,
-            width: 33,
-            decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.05),
-                borderRadius: BorderRadius.circular(8)),
-            child: IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search,
-                  size: 20,
-                ))),
+        CustomIconButton(
+          icon: icon,
+        ),
       ],
     );
   }
