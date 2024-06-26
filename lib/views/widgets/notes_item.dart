@@ -46,7 +46,9 @@ class NotesItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    showDialogConfirmation(context);
+                  },
                   icon: const Icon(
                     Icons.delete,
                     color: Colors.black,
@@ -65,5 +67,31 @@ class NotesItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<dynamic> showDialogConfirmation(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (builder) {
+          return AlertDialog(
+            title: const Text("Alert"),
+            content: const Text(
+              "Do you want to confirm deletion?",
+            ),
+            actions: [
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Cancel")),
+              TextButton(
+                  onPressed: () {
+                    note.delete();
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text("Confirm"))
+            ],
+          );
+        });
   }
 }
