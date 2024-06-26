@@ -4,8 +4,9 @@ import 'package:notes_app/views/widgets/custom_icon_button.dart';
 class CustomAppbar extends StatelessWidget {
   const CustomAppbar({
     super.key,
-    required this.title, required this.icon,
+    required this.title, required this.icon, this.onPressed,
   });
+  final void Function()? onPressed;
   final String title;
   final IconData icon;
   @override
@@ -21,6 +22,7 @@ class CustomAppbar extends StatelessWidget {
         ),
         const Spacer(),
         CustomIconButton(
+          onPressed: onPressed,
           icon: icon,
         ),
       ],
