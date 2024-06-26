@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/edit_note_view.dart';
 
 class NotesItem extends StatelessWidget {
-  const NotesItem({super.key});
-
+  const NotesItem({super.key, required this.note});
+  final NoteModel note;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,26 +20,26 @@ class NotesItem extends StatelessWidget {
           left: 8,
         ),
         decoration: BoxDecoration(
-          color: const Color(0xffFFCC79),
+          color: Color(note.color),
           borderRadius: BorderRadius.circular(8),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                "Study with me",
-                style: TextStyle(
+              title: Text(
+                note.title,
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 26,
                 ),
               ),
-              subtitle: const Padding(
-                padding: EdgeInsets.only(top: 8),
+              subtitle: Padding(
+                padding: const EdgeInsets.only(top: 8),
                 child: Text(
-                  "Study with me (Introduced by Yousef Sobhy) *No music only Rain sound*",
-                  style: TextStyle(
+                  note.subTitle,
+                  style: const TextStyle(
                     color: Color(0xff9A723C),
                     fontSize: 14,
                   ),
@@ -51,11 +52,11 @@ class NotesItem extends StatelessWidget {
                     color: Colors.black,
                   )),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8, right: 16),
+            Padding(
+              padding: const EdgeInsets.only(top: 8, right: 16),
               child: Text(
-                "21May, 2024",
-                style: TextStyle(
+                note.date,
+                style: const TextStyle(
                   color: Color(0xff9A723C),
                 ),
               ),

@@ -11,14 +11,15 @@ class NotesListview extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesCubitState>(
       builder: (context, state) {
-        List<NoteModel> notes =
-            BlocProvider.of<NotesCubit>(context).notes!;
+        List<NoteModel> notes = BlocProvider.of<NotesCubit>(context).notes!;
         return ListView.builder(
             itemCount: notes.length,
             itemBuilder: (context, index) {
-              return const Padding(
-                padding: EdgeInsets.symmetric(vertical: 4),
-                child: NotesItem(),
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                child: NotesItem(
+                  note: notes[index],
+                ),
               );
             });
       },
